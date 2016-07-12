@@ -1,0 +1,106 @@
+<?php
+echo "<h1>Predictions</h1>\n";
+
+include($qrydir.'updateform.sql');
+include($qrydir.'predictions.sql');
+
+if ($pl && 0 < mysql_num_rows($n7)) {
+  if ($sp && 0 < mysql_num_rows($sp)) {
+    print "<font size=-1>\n";
+    print "<table border=0 cellspacing=1 cellpadding=10>\n";
+    print "<tr><th>All Games<th>Best By Competition\n";
+    print "<tr><td>\n";
+    print "<table border=0 cellspacing=1 cellpadding=3>\n";
+    $CID=-1;
+    $bg="DarkCyan";
+    while ($r=mysql_fetch_assoc($n7)) {
+      if ($r['CID']!=$CID) {
+      	echo (0<=$CID ? "<tr><td colspan=6><hr>\n" : "");
+      	$CID=$r['CID'];
+      	echo "<tr><th colspan=6>".$r['CFN']."\n";
+    	echo "<tr>";
+    	echo "<th>Game Date";
+    	echo "<th>Home Team";
+    	echo "<th>Prediction";
+    	echo "<th>Away Team";
+    	echo "<th>Cert%";
+    	echo "<th>Score";
+    	echo "\n";
+      }
+      $bg=($bg=="DarkCyan" ? "DarkSlateGray" : "DarkCyan" );
+      switch ($r['PRR']) {
+  	case 'HW': $rescol=$WinCol;
+  	           break;
+  	case 'AW': $rescol=$LoseCol;
+  	           break;
+  	case 'SD': $rescol=$SDrawCol;
+  	           break;
+  	case 'ND': $rescol=$NDrawCol;
+  	           break;
+      }
+      $predPC=(100<$r['PRC'] ? 100 : $r['PRC']);
+      echo "<tr bgcolor=".$bg.">";
+      echo "<td align=left>".date("D, jS M y",$r['GDt']);
+      $comp=$r['CID'];
+      echo "<td align=right>".team_anchor($r['T1I'] ,$r['T1S']);
+      echo "<td align=center bgcolor=".$rescol.">".$r['PRR'];
+      echo "<td align=left>".team_anchor($r['T2I'] ,$r['T2S']);
+      echo "<td align=center>".$predPC."%";
+      echo "<td align=center bgcolor=".$rescol.">".$r['PRS'];
+      echo "\n";
+    }
+  
+    echo "</table>\n";
+  
+    echo "<td align=center valign=top>\n";
+  
+    $CID=-1;
+    echo "<table border=0 cellspacing=1 cellpadding=3>\n";
+    while ($r=mysql_fetch_assoc($gd)) {
+      if ($r['CID']!=$CID) {
+      	echo (0<=$CID ? "<tr><td colspan=3><hr>\n" : "");
+        echo "<tr><th colspan=3>".$CompFullName[$r['CID']]."\n";
+        echo "<tr><th>Res<th>Home Team<th>Certainty\n";
+    	$CID=$r['CID'];
+      }
+      $bg=($bg=="DarkCyan" ? "DarkSlateGray" : "DarkCyan" );
+      $comp=$r['CID'];
+      echo "<tr bgcolor=".$bg."><th>".$r['PRR']."<td>".team_anchor($r['T1I'] ,$r['T1F'])."<td align=right>".(100<$r['PRC'] ? 100 : $r['PRC'])."%\n";
+    }
+  
+    echo "</table>\n";
+    echo "<hr>\n";
+  
+    echo "<table border=0 cellspacing=1 cellpadding=3>\n";
+    echo "<tr><th colspan=9>Union Jack (18 bets)\n";
+    echo "<tr><th>Home Team<th>Res<th>Cert%<th>Home Team<th>Res<th>Cert%<th>Home Team<th>Res<th>Cert%\n";
+  
+    while ($r=mysql_fetch_assoc($UJ)) {
+      $bg=($bg=="DarkCyan" ? "DarkSlateGray" : "DarkCyan" );
+      switch ($r['PRR']) {
+  	case 'HW': $rescol=$WinCol;
+  	           break;
+  	case 'AW': $rescol=$LoseCol;
+  	           break;
+  	case 'SD': $rescol=$SDrawCol;
+  	           break;
+  	case 'ND': $rescol=$NDrawCol;
+  	           break;
+      }
+      echo ($r['Pos']%3==0 ? "<tr>" : "");
+      $comp=$r['CID'];
+      echo "<td bgcolor=".$bg.">".team_anchor($r['T1I'] ,$r['T1S']);
+      echo "<td bgcolor=".$rescol." align=center>".$r['PRR'];
+      echo "<td bgcolor=".$rescol." align=right>".(100<$r['PRC'] ? 100 : $r['PRC'])."%";
+      echo "\n";
+    }
+    echo "</table>\n";
+    echo "</table>\n";
+    echo "</font>\n";
+  }
+}
+else {
+  echo "<h3>*** No games to be played in the next 7 days ***</h3>\n";
+}
+
+?>

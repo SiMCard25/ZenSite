@@ -1,0 +1,195 @@
+/* Pretronix Style Sheet */
+<!--
+/* Page defaults */
+/* Body stuff */
+body {background-color: MediumSeaGreen;
+     }
+
+img { height:30px;
+}
+
+iframe {height : 100%;
+	      width  : 100%;
+	     }
+
+div {border-style    : outset    ;
+     border-color    : silver    ;
+     padding         : 5px       ;
+     width           : 33%       ;
+     font-family     : tahoma, arial, sans-serif ;
+     font-weight     : Bold      ;
+     color           : Gainsboro ;
+    }
+	      
+div#topbar {
+  background-color : GhostWhite      ;
+  width            : 96%             ;
+  font-family      : "CapitalPoster", "rockwell condensed", rockwell, impact, haettenschweiler, tahoma ;
+  font-stretch     : extra-condensed ;
+  font-variant     : small-caps      ;
+}
+
+div#testpanel {
+  background-color : OliveDrab ;
+  width            : 96%       ;
+  clear            : both      ;
+  font-weight      : Normal    ;
+  font-family      : "lucinda console", eurostyle, arial ;
+}
+
+div#movable {
+  width      : 30%    ;
+  border     : none   ;
+  float      : left   ;
+  clear      : left   ;
+  cursor     : move   ;
+  text-align : center ;
+}
+
+div#football {
+  background-color : Teal ;
+  width            : 80%  ;
+}
+
+div#lutonstuff {
+  background-color : Blue ;
+  width            : 80%  ;
+}
+
+div#search {
+  background-color : SteelBlue ;
+  width            : 80%       ;
+}
+
+div#internet {
+  background-color : CornflowerBlue ;
+  width            : 80%            ;
+}
+
+div#retailers {
+  background-color : DarkCyan       ;
+  width            : 80%            ;
+}
+
+div#modelling {
+  background-color : Indigo ;
+  width            : 80%            ;
+}
+
+div#personal {
+  background-color : Navy   ;
+  color            : Orange ;
+  width            : 80%    ;
+}
+
+div#games {
+  background-color : DarkRed ;
+  color            : Gold    ;
+  width            : 80%     ;
+}
+div#rightcol {
+  width    : 60%  ;
+  float    : left ;
+  border   : none ;
+  height   : 100% ;
+}
+
+div#linkshow {
+  background-color : Black;
+  color            : White;
+  text-align       : center;
+  height           : 100% ;
+  width            : 100% ;
+  float            : left ;
+  clear            : right;
+  cursor           : move ;
+}
+  
+
+div#ilf {position : absolute;
+	       top      : 150px;
+	       left     : 35%;
+	       width    : 60%;
+	       height   : 500px;
+	       border   : none;
+	      }
+
+
+/* Headings */
+h1 ,h2 ,h3 ,h4 ,h5 ,h6 {color:ForestGreen
+                       }
+
+
+
+
+
+/* Table stuff */
+th {background: Crimson;
+    color:      White;
+    font:       bold 8pt Tahoma, Arial ,sans-serif
+   }
+td {color:      White;
+    font:       8pt Tahoma, Arial ,sans-serif
+   }
+
+
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* For use in the Fixtures / Results Sheet                                       */
+/* resW = Win, L = Loss, N = Noscore Draw, S = Score Draw                        */
+/* Others refer to game dates compared to today                                  */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+td.resW     { text-align: center; background: Green         }
+td.resL     { text-align: center; background: Firebrick     }
+td.resN     { text-align: center; background: SaddleBrown   }
+td.resD     { text-align: center; background: Peru          }
+td.resLate  { text-align: center; background: DarkSalmon    }
+td.resToday { text-align: center; background: DarkOrange    }
+td.resSoon  { text-align: center; background: IndianRed     }
+td.resDate  { text-align: center; background: DarkSlateGray }
+/*
+td.resSame  { background:                                  }
+*/
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* For use in the League Table / Form Table pages                                */
+/* tl = Team cell, left justified tr = Team cell, Right justified                */
+/* t1 = top tier t2 = second tier b1 = bottom tier                               */
+/* r1 = row color1 r2 = row color 2 (for alternating colors)                     */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+td.tl { text-align: left;  }
+td.tr { text-align: right; }
+
+
+
+
+
+
+
+
+tr.t1 { text-align: center; background: ForestGreen   }
+tr.t2 { text-align: center; background: DarkGreen     }
+tr.b1 { text-align: center; background: FireBrick     }
+tr.r1 { text-align: center; background: DarkSlateGray }
+tr.r2 { text-align: center; background: DarkCyan      }
+
+
+
+
+
+
+
+
+/* Anchors */
+a {font    : 10pt Tahoma, Arial ,sans-serif;
+   color   : Ivory;
+  }
+th a {font-size:   9pt;
+      font-weight: bold
+     }
+td a {font-size: 9pt}
+  
+-->
